@@ -1,4 +1,4 @@
-package com.app.encuesta.encuesta;
+package com.app.encuesta;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.app.encuesta.encuesta;
+package com.app.encuesta;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

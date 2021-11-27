@@ -1,4 +1,4 @@
-package com.app.encuesta.encuesta;
+package com.app.encuesta;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
