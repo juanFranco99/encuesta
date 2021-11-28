@@ -6,8 +6,7 @@ import com.app.encuesta.repository.RespuestaEncuestaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class RespuestaEncuestaService {
@@ -60,5 +59,20 @@ public class RespuestaEncuestaService {
     public boolean isEmailYaRegistrado(String emailUsuario) {
         Optional<RespuestaEncuesta> opt = repository.findById(emailUsuario);
         return opt.isPresent();
+    }
+
+    public List<Map<String, Object>> getResumenEncuesta(){
+        List<Object[]> objects = repository.getResumenEncuesta();
+        List<Map<String, Object>> result = new ArrayList<>();
+        for(Object[] o : objects){
+            Map<String, Object> res = new HashMap<>();
+            res.put("cantidad", o[0]);
+            res.put("genero", o[1]);
+            result.add(res);
+
+        }
+
+        return result;
+
     }
 }

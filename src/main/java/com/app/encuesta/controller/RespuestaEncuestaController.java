@@ -60,4 +60,14 @@ public class RespuestaEncuestaController extends GenericController{
             return badRequest(e);
         }
     }
+
+    @GetMapping("/resumen")
+    public ResponseEntity<?> getResumenEncuesta(){
+        try {
+            return success(service.getResumenEncuesta());
+        }catch (Exception e) {
+            return badRequest(e);
+        }
+    }
+
 }
