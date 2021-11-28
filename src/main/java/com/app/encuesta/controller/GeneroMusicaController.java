@@ -41,7 +41,7 @@ public class GeneroMusicaController extends GenericController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody @Valid GeneroMusica obj) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody @Valid GeneroMusica obj) {
         try {
             GeneroMusica generoMusica = service.update(id, obj);
             return success(generoMusica);
@@ -51,7 +51,7 @@ public class GeneroMusicaController extends GenericController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> borrar(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         try {
             service.delete(id);
             return deleteRequest();

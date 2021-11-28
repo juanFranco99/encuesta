@@ -22,7 +22,7 @@ public class GeneroMusicaSerice {
 
     public GeneroMusica getById(Long id){
         Optional<GeneroMusica> opt = repository.findById(id);
-        if(!opt.isPresent())  {
+        if(opt.isEmpty())  {
             throw new RecursoNoEncontradoException(String.format("El genero con el id %s no fue encontrado", id));
         }
 
@@ -36,7 +36,7 @@ public class GeneroMusicaSerice {
 
     public GeneroMusica update(Long id, GeneroMusica obj){
         Optional<GeneroMusica> opt = repository.findById(id);
-        if(!opt.isPresent()){
+        if(opt.isEmpty()){
             throw new RecursoNoEncontradoException(String.format("El genero con el id %s no fue encontrado", id));
         }
         GeneroMusica objUpdate = opt.get();
@@ -48,7 +48,7 @@ public class GeneroMusicaSerice {
     public void delete(Long id){
         Optional<GeneroMusica> opt = repository.findById(id);
 
-        if(!opt.isPresent()){
+        if(opt.isEmpty()){
             throw new RecursoNoEncontradoException(String.format("El genero con el id %s no fue encontrado", id));
         }
 
