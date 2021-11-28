@@ -28,7 +28,10 @@ public class RespuestaEncuestaService {
         return opt.get();
     }
 
-    public RespuestaEncuesta add(RespuestaEncuesta obj){
+    public RespuestaEncuesta add(RespuestaEncuesta obj) throws Exception {
+        if(isEmailYaRegistrado(obj.getEmailUsuario())){
+            throw new Exception(String.format("El el email %s ya ha contestado la encuesta", obj.getEmailUsuario()));
+        }
         repository.save(obj);
         return obj;
     }
@@ -52,6 +55,10 @@ public class RespuestaEncuestaService {
         }
 
         repository.deleteById(email_usuario);
+    }
 
+    public boolean isEmailYaRegistrado(String emailUsuario) {
+        Optional<RespuestaEncuesta> opt = repository.findById(emailUsuario);
+        return opt.isPresent();
     }
 }

@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/respuesta")
+@RequestMapping("v1/encuesta")
 public class RespuestaEncuestaController extends GenericController{
 
     @Autowired

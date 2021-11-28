@@ -23,7 +23,7 @@ public class GenericController {
         log.error(e.getMessage(), e);
         res.put("error", "Error al processar la peticion");
         res.put("detail", e.getMessage());
-        return ResponseEntity.ok().body(res);
+        return ResponseEntity.badRequest().body(res);
     }
 
     public ResponseEntity<HashMap<String, Object>> deleteRequest(){
